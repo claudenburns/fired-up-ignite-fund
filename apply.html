@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply — Fired Up Ignite Fund</title>
+  <meta name="description" content="Apply for a Fired Up Ignite Fund grant or scholarship. Open to passionate young people ages 17-25 in any discipline." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">
+        <span class="flame">🔥</span> Fired Up Ignite Fund
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="apply.html" class="nav-cta">Apply</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="apply-hero">
+    <div class="container">
+      <h1>Apply for a Grant</h1>
+      <p>Tell us what you're fired up about. No GPA required — just your story.</p>
+    </div>
+  </section>
+
+  <!-- Application body -->
+  <section class="apply-body">
+    <div class="container">
+      <div class="apply-grid">
+
+        <!-- Form -->
+        <div>
+          <div class="form-card">
+
+            <!-- Success state (shown after submission) -->
+            <div class="form-success" id="form-success">
+              <div class="check">✅</div>
+              <h2>Application received.</h2>
+              <p>Thank you for applying. We review applications annually and will be in touch. Keep doing what you love.</p>
+            </div>
+
+            <!-- The form -->
+            <form
+              id="application-form"
+              name="ignite-application"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+            >
+              <!-- Honeypot (hidden from humans, catches bots) -->
+              <p style="display:none;">
+                <label>Don't fill this out: <input name="bot-field" /></label>
+              </p>
+              <input type="hidden" name="form-name" value="ignite-application" />
+
+              <!-- Section: About You -->
+              <div class="form-section-label">About You</div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name">First name <span class="req">*</span></label>
+                  <input type="text" id="first-name" name="first-name" required autocomplete="given-name" />
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last name <span class="req">*</span></label>
+                  <input type="text" id="last-name" name="last-name" required autocomplete="family-name" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="age">Age <span class="req">*</span></label>
+                  <input type="number" id="age" name="age" min="17" max="25" required />
+                </div>
+                <div class="form-group">
+                  <label for="location">City, State <span class="req">*</span></label>
+                  <input type="text" id="location" name="location" placeholder="e.g. Austin, TX" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="current-path">What are you currently doing? <span class="req">*</span></label>
+                <select id="current-path" name="current-path" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="high-school">High school student</option>
+                  <option value="college">College / university student</option>
+                  <option value="trade-school">Trade school or vocational program</option>
+                  <option value="self-taught">Self-taught / independent</option>
+                  <option value="working">Working full or part time</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <!-- Section: Your Craft -->
+              <div class="form-section-label">Your Craft</div>
+
+              <div class="form-group">
+                <label for="discipline">What field or discipline are you passionate about? <span class="req">*</span></label>
+                <input type="text" id="discipline" name="discipline" placeholder="e.g. welding, marine biology, game design, dance..." required />
+              </div>
+
+              <div class="form-group">
+                <label for="how-long">How long have you been seriously involved in this? <span class="req">*</span></label>
+                <select id="how-long" name="how-long" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="under-1">Less than 1 year</option>
+                  <option value="1-2">1–2 years</option>
+                  <option value="3-5">3–5 years</option>
+                  <option value="5-plus">More than 5 years</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="passion-story">Tell us about your passion. What is it, and why does it matter to you? <span class="req">*</span></label>
+                <textarea id="passion-story" name="passion-story" rows="6" placeholder="Be specific. Tell us what you actually do, what drives you, and why you can't imagine stopping." required></textarea>
+                <p class="char-hint">Aim for 200–500 words. Specificity matters more than polish.</p>
+              </div>
+
+              <div class="form-group">
+                <label for="evidence">Describe something specific you've built, created, accomplished, or done in this field.</label>
+                <textarea id="evidence" name="evidence" rows="4" placeholder="A project you completed, a competition you entered, something you made, a skill you mastered — anything concrete."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="portfolio-url">Link to your work (optional)</label>
+                <input type="url" id="portfolio-url" name="portfolio-url" placeholder="https://" />
+                <p class="char-hint">Portfolio, social profile, video, project page — anything that shows your work.</p>
+              </div>
+
+              <!-- Section: The Grant -->
+              <div class="form-section-label">The Grant</div>
+
+              <div class="form-group">
+                <label for="use-of-funds">What would you do with this grant? <span class="req">*</span></label>
+                <textarea id="use-of-funds" name="use-of-funds" rows="4" placeholder="Be specific and realistic. Equipment, training, materials, a course, travel — what would this funding actually unlock for you?" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="next-level">What does your next level look like? Where are you trying to go? <span class="req">*</span></label>
+                <textarea id="next-level" name="next-level" rows="4" placeholder="Tell us where you want to be in 1–2 years and how this support helps you get there." required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="inspiration">Who or what has most shaped your passion — and how? (optional)</label>
+                <textarea id="inspiration" name="inspiration" rows="3" placeholder="A person, a moment, a place — whatever lit the fire or kept it going."></textarea>
+              </div>
+
+              <!-- Submit -->
+              <div class="form-submit">
+                <button type="submit" class="btn-submit">Submit Application 🔥</button>
+                <p class="form-disclaimer">Applications are reviewed annually by our committee. We'll follow up at the email you provided. No GPA, financial statements, or transcripts required.</p>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="apply-sidebar">
+
+          <div class="sidebar-card sidebar-highlight">
+            <h3>What we're looking for</h3>
+            <p>One thing: genuine, sustained passion for something you love. The field doesn't matter. The grades don't matter. The fire does.</p>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Eligibility</h3>
+            <ul>
+              <li>Ages 17–25</li>
+              <li>Any discipline or field</li>
+              <li>Any academic or career path</li>
+              <li>No GPA requirement</li>
+              <li>No financial need requirement</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>What to expect</h3>
+            <ul>
+              <li>Applications are reviewed annually</li>
+              <li>You'll hear back via the email you provide</li>
+              <li>We may follow up with a short conversation</li>
+              <li>Grants are flexible — no restrictions on use</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Questions?</h3>
+            <p>Reach out at <a href="mailto:claudenburns@gmail.com">claudenburns@gmail.com</a> and we'll get back to you.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">🔥 Fired Up Ignite Fund</span>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="apply.html">Apply</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">Founded in honor of Steven Lindsay &mdash; In memory of a spark that never quit.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Show success state after Netlify form submission
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === 'true') {
+      document.getElementById('application-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+
+    // Client-side: redirect to ?submitted=true after submit
+    // (Netlify handles the POST; this gives a clean success UX)
+    document.getElementById('application-form').addEventListener('submit', function(e) {
+      // Let Netlify handle the POST naturally
+      // The redirect below gives a success state on return
+    });
+  </script>
+
+</body>
+</html>
